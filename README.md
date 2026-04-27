@@ -15,24 +15,24 @@ View all complaints
 Assign complaints
 Update complaint status
 Delete complaints
-🚀 Features
-👨‍🎓 Student Module
+Features:
+Student Module
 Student Registration & Login
 Submit Complaint (Anonymous option available)
 View My Complaints
 Edit & Delete Complaints
-🛠️ Admin Module
+Admin Module:
 Admin Login
 View All Complaints
 Assign Complaints
 Update Complaint Status
 Delete Complaints
-🏗️ Tech Stack
+Tech Stack:
 Backend: Flask (Python)
 Frontend: HTML, CSS
 Database: SQLite
 Session Management: Flask Sessions
-📂 Project Structure
+📂 Project Structure:
 project/
 │── app.py
 │── database.py
@@ -55,15 +55,15 @@ project/
     └── js/
 ⚙️ Installation & Setup
 1️⃣ Clone Repository
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/sathya19-git/Anonymous Issue Reporting Framework Project.git
+cd Anonymous Issue reporting Framework Project
 2️⃣ Install Dependencies
 pip install flask
 3️⃣ Run the Application
 python app.py
 4️⃣ Open in Browser
 http://127.0.0.1:5000/
-🔑 Admin Credentials
+Admin Credentials:
 Email: admin@college.com
 Password: admin123
 🧠 How It Works
@@ -71,9 +71,7 @@ Students register and login
 Complaints are stored in SQLite database
 Each complaint gets a unique ID (e.g., CMP123456)
 Admin can manage complaints through dashboard
-📸 Screenshots (Optional)
 
-Add screenshots of your project here
 
 🔒 Security Features
 Session-based authentication
