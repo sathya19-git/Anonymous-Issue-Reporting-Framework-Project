@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Complaint</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        .complaint-card {
+            max-width: 550px;
+            padding: 40px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="complaint-card">
+    <h2>Submit Complaint</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- IMPORTANT: enctype added -->
+    <form method="POST" enctype="multipart/form-data">
+
+        <!-- Complaint Title -->
+        <input type="text" name="title" class="form-control mb-3"
+               placeholder="Complaint Title" required>
+
+        <!-- Complaint Description -->
+        <textarea name="description" class="form-control mb-3" rows="4"
+                  placeholder="Describe your issue clearly..." required></textarea>
+
+        <!-- Severity -->
+        <select name="severity" class="form-control mb-3" required>
+            <option value="">Select Severity</option>
+            <option value="Low">Low (Minor issue)</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical (Needs immediate attention)</option>
+        </select>
+
+        <!-- Image Upload -->
+        <label class="form-label">Upload Image (optional)</label>
+        <input type="file" name="image" class="form-control mb-3"
+               accept="image/*">
+
+        <!-- Anonymous -->
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox"
+                   name="anonymous" id="anonymousCheck">
+            <label class="form-check-label" for="anonymousCheck">
+                Submit Anonymously
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100">
+            Submit Complaint
+        </button>
+
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

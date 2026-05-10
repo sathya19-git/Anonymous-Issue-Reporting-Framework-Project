@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Complaints</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📋 My Complaints</h2>
+
+    {% if complaints %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover shadow">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Status</th>
+                    <th>Actions</th> <!-- Added Actions column -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                <tr>
+                    <td>{{ complaint["id"] }}</td>
+                    <td>{{ complaint["title"] }}</td>
+                    <td>{{ complaint["description"] }}</td>
+                    <td class="text-center">
+                        <span class="badge 
+                            {% if complaint['severity'] == 'High' %}
+                                bg-danger
+                            {% elif complaint['severity'] == 'Medium' %}
+                                bg-warning text-dark
+                            {% else %}
+                                bg-success
+                            {% endif %}
+                        ">
+                            {{ complaint["severity"] }}
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        {% if complaint["status"] == 'Pending' %}
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        {% elif complaint["status"] == 'In Progress' %}
+                            <span class="badge bg-primary">In Progress</span>
+                        {% elif complaint["status"] == 'Resolved' %}
+                            <span class="badge bg-success">Resolved</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ complaint["status"] }}</span>
+                        {% endif %}
+                    </td>
+                    <!-- Actions: Edit & Delete -->
+                    <td class="text-center">
+                        <a href="/edit_complaint/{{ complaint['id'] }}" class="btn btn-sm btn-primary me-1">
+                            ✏ Edit
+                        </a>
+                        <a href="/delete_complaint/{{ complaint['id'] }}" 
+                           class="btn btn-sm btn-danger" 
+                           onclick="return confirm('Are you sure you want to delete this complaint?');">
+                            🗑 Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            No complaints submitted yet.
+        </div>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="/student_dashboard" class="btn btn-secondary">
+            ⬅ Back to Dashboard
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
