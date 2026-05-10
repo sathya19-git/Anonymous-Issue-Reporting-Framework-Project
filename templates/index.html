@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automated Issue Reporting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+           background: linear-gradient(135deg, #fbc2eb, #a6c1ee); /* colorful gradient */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .landing-card {
+            max-width: 500px;
+            padding: 50px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .landing-card h1 {
+            margin-bottom: 40px;
+            color: #333;
+            font-weight: bold;
+        }
+        .landing-card .btn {
+            margin: 10px;
+            width: 70%;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .landing-card .btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing-card">
+    <h1> Student Complaint Portal</h1>
+    <a href="/register" class="btn btn-primary btn-lg">Student Register</a>
+    <a href="/login" class="btn btn-success btn-lg">Student Login</a>
+    <a href="/admin_login" class="btn btn-warning btn-lg">Admin Login</a>
+</div>
+
+</body>
+</html>
